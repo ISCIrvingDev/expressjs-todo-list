@@ -15,9 +15,9 @@
   "author": "Jose Irving Salazar Rivas",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "http-errors": "^1.7.2",
-    "mongoose": "^5.4.22",
-    "morgan": "^1.9.1"
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^8.16.5",
+    "morgan": "^1.10.1"
   }
 }
