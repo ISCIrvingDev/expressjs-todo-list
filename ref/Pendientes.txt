@@ -1,0 +1,15 @@
+1) Subir el proyecto a Git
+
+2) Comentar el servidor estatico
+* Nota: El proyecto Front se ha desacoplado del back, por lo que ya no es necesario que el back tenga un servidor estatico
+
+3) Actualizar el proyecto:
+* Actualizar las dependencias
+
+4) Implementar variables de entorno
+
+5) Probar que funcione en local
+
+6) Deployar con Dokploy
+* Mismos procedimientos que el proyecto "Portfolio"
+* Poner las variables de entorno adecuadas
