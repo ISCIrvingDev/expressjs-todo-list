@@ -10,24 +10,32 @@ const express = require("express"),
 // * Variables de entorno
 require("dotenv").config();
 
-const domainCors = process.env.DOMAIN_CORS;
+const domainCors = process.env.DOMAIN_CORS.split(',');
 
 // * Configuracion de la App
 app
+  // * Puerto
   .set("port", process.env.PORT || 3000)
 
   // Comentar servidor estatico
   // .use(express.static(`${__dirname}/public`))
 
+  // * Aceptar JSONs
   .use(express.json())
   .use(express.urlencoded({ extended: false }))
 
+  // * Logs
   .use(logger("dev"))
 
   // CORS
   .use((req, res, next) => {
+    const origin = req.headers.origin
+
     // res.header('Access-Control-Allow-Origin', '*'); // Solamente para hacer pruebas con CORS en development
-    res.header("Access-Control-Allow-Origin", domainCors);
+    if (domainCors.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.header(
       "Access-Control-Allow-Headers",
@@ -36,7 +44,11 @@ app
     // res.header('Access-Control-Allow-Credentials', true);
     return next();
   })
+
+  // * Controladores
   .use(routes)
+
+  // * Manejo de errores
   .use((req, res, next) => next(httpErrors(404)))
   .use((err, req, res, next) => {
     // console.log('El error ocurrido es: ', err);
