@@ -15,9 +15,11 @@
   "author": "Jose Irving Salazar Rivas",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "http-errors": "^2.0.0",
     "mongoose": "^8.16.5",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10"
   }
 }
